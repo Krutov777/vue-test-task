@@ -1,5 +1,5 @@
 # 
-
+### [Link to task](https://github.com/Ecwid/new-job/blob/master/TypeScript.md)
 ## Project setup
 ```
 npm install

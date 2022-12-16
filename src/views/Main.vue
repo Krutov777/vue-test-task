@@ -1,15 +1,12 @@
 <template>
   <main role="main" class="inner cover">
-    <h1 class="cover-heading">Welcome </h1>
+    <h1 class="cover-heading">Welcome</h1>
   </main>
 </template>
 
 <script>
 export default {
-  name: 'Home',
-  props: {
-    msg: String
-  }
+  name: 'Home'
 }
 </script>
 

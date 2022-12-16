@@ -1,55 +1,25 @@
-body{
-  min-height: 100vh;
-  padding: 0px;
-  margin: 0px;
+.loader {
+  --b: 10px;  /* border thickness */
+  --n: 10;    /* number of dashes*/
+  --g: 10deg; /* gap  between dashes*/
+  --c: red;   /* the color */
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25%;
+  width:100px; /* size */
+  aspect-ratio: 1;
+  border-radius: 50%;
+  padding: 1px; /* get rid of bad outlines */
+  background: conic-gradient(#0000,var(--c)) content-box;
+  --_m: /* we use +/-1deg between colors to avoid jagged edges */
+          repeating-conic-gradient(#0000 0deg,
+          #000 1deg calc(360deg/var(--n) - var(--g) - 1deg),
+          #0000     calc(360deg/var(--n) - var(--g)) calc(360deg/var(--n))),
+          radial-gradient(farthest-side,#0000 calc(98% - var(--b)),#000 calc(100% - var(--b)));
+  -webkit-mask: var(--_m);
+  mask: var(--_m);
+  -webkit-mask-composite: destination-in;
+  mask-composite: intersect;
+  animation: load 1s infinite steps(var(--n));
 }
-
-.spin-wrapper{
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  background: #080705;
-
-  .spinner{
-    position: absolute;
-    height: 60px;
-    width: 60px;
-    border: 3px solid transparent;
-    border-top-color: #A04668;
-    top: 50%;
-    left: 50%;
-    margin: -30px;
-    border-radius: 50%;
-    animation: spin 2s linear infinite;
-
-    &:before, &:after{
-      content:'';
-      position: absolute;
-      border: 3px solid transparent;
-      border-radius: 50%;
-    }
-
-    &:before{
-      border-top-color: #254E70;
-      top: -12px;
-      left: -12px;
-      right: -12px;
-      bottom: -12px;
-      animation: spin 3s linear infinite;
-    }
-
-    &:after{
-      border-top-color: #FFFBFE;
-      top: 6px;
-      left: 6px;
-      right: 6px;
-      bottom: 6px;
-      animation: spin 4s linear infinite;
-    }
-  }
-}
-
-@keyframes spin{
-  0% {transform: rotate(0deg);}
-  100% {transform: rotate(360deg);}
-}
+@keyframes load {to{transform: rotate(1turn)}}
